@@ -3,5 +3,24 @@
 
     <string name="app_name">SimpleBeamTool</string>
     <string name="hello_world">Hello world!</string>
+    <string name="span_label">Span</string>
+    <string name="tribwidth_label">Trib Width</string>
+    <string name="deadUDL_label">Dead(UDL)</string>
+    <string name="liveUDL_label">Live(UDL)</string>
+    <string name="deflnRatio_label">LL Defln L/</string>
+    <string name="Mf_label">Mf</string>
+    <string name="Rf_label">Rf</string>
+    <string name="Ix_label">Ix</string>
+
+    <string name="span_units_si">m</string>
+    <string name="tribwidth_units_si">m</string>
+    <string name="deadUDL_units_si">kPa</string>
+    <string name="liveUDL_units_si">kPa</string>
+    <string name="defln_units_si">mm</string>
+    <string name="Mf_units_si">kNm</string>
+    <string name="Rf_units_si">kN</string>
+    <string name="Ix_units1_si">x10^6</string>
+    <string name="Ix_units2_si">mm4</string>
+
 
 </resources>

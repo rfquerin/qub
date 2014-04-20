@@ -23,4 +23,14 @@
     <string name="Ix_units2_si">mm4</string>
 
 
+    <string name="span_units_imp">ft</string>
+    <string name="tribwidth_units_imp">ft</string>
+    <string name="deadUDL_units_imp">psf</string>
+    <string name="liveUDL_units_imp">psf</string>
+    <string name="defln_units_imp">in</string>
+    <string name="Mf_units_imp">ft-k</string>
+    <string name="Rf_units_imp">k</string>
+    <string name="Ix_units1_imp">in4</string>
+    <string name="Ix_units2_imp"> </string>
+
 </resources>

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -22,7 +23,77 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
+
+
+    public void radiobuttonClick(View v) {
+
+        // handle radio button click
+
+        // --test --TextView deflunits = (TextView)findViewById(R.id.textViewDeflnUnits);
+        TextView spanunits = (TextView)findViewById(R.id.textViewSpanUnits);
+        TextView tribunits = (TextView)findViewById(R.id.textViewTribUnits);
+        TextView deadunits = (TextView)findViewById(R.id.textViewDeadUnits);
+        TextView liveunits = (TextView)findViewById(R.id.textViewLiveUnits);
+        TextView deflunits = (TextView)findViewById(R.id.textViewDeflnUnits);
+        TextView momentunits = (TextView)findViewById(R.id.textViewMomentUnits);
+        TextView reactionunits = (TextView)findViewById(R.id.textViewReactionUnits);
+        TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxExponent);
+        TextView inertiaunits2 = (TextView)findViewById(R.id.textViewIxUnits);
+
+
+        // Is the button now checked?
+        boolean checked = ((RadioButton) v).isChecked();
+
+        // Check which radio button was clicked
+        switch(v.getId()) {
+            case R.id.radioButtonSI:
+                if (checked)
+                    // deflunits.setText("METRIC"); -- test case
+
+                    // set all textviews with units to be metric ones
+
+                    spanunits.setText(R.string.span_units_si);
+                    tribunits.setText(R.string.tribwidth_units_si);
+                    deadunits.setText(R.string.deadUDL_units_si);
+                    liveunits.setText(R.string.liveUDL_units_si);
+                    deflunits.setText(R.string.defln_units_si);
+                    momentunits.setText(R.string.Mf_units_si);
+                    reactionunits.setText(R.string.Rf_units_si);
+                    inertiaunits1.setText(R.string.Ix_units1_si);
+                    inertiaunits2.setText(R.string.Ix_units2_si);
+
+
+
+
+
+
+
+                    break;
+            case R.id.radioButtonIMP:
+                if (checked)
+
+                    // deflunits.setText("IMP"); -- test case
+
+                    // set all textviews with units to be imperial ones
+
+                    spanunits.setText(R.string.span_units_imp);
+                    tribunits.setText(R.string.tribwidth_units_imp);
+                    deadunits.setText(R.string.deadUDL_units_imp);
+                    liveunits.setText(R.string.liveUDL_units_imp);
+                    deflunits.setText(R.string.defln_units_imp);
+                    momentunits.setText(R.string.Mf_units_imp);
+                    reactionunits.setText(R.string.Rf_units_imp);
+                    inertiaunits1.setText(R.string.Ix_units1_imp);
+                    inertiaunits2.setText(R.string.Ix_units2_imp);
+
+
+                break;
+        }
+    }
+
 
     public void refreshbuttonOnClick(View v) {
     // take the input values and compute the output.
@@ -73,10 +144,6 @@ public class MainActivity extends Activity {
         float denominator = (float)384 * (float)200000 * defln_measurement;
 
         float inertia = numerator/(denominator*(float)1e6);
-
-
-
-
 
 
 

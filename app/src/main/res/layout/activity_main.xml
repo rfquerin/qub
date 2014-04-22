@@ -13,28 +13,30 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="false"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textViewMoment"
         android:id="@+id/radioGroup"
         android:paddingBottom="20dp"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentLeft="false">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SI"
-            android:id="@+id/radioButton"
+            android:text="Metric"
+            android:id="@+id/radioButtonSI"
             android:checked="true"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:onClick="radiobuttonClick" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Imperial"
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButtonIMP"
             android:checked="false"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:onClick="radiobuttonClick" />
     </RadioGroup>
 
 

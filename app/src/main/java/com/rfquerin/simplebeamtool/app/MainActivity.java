@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -17,12 +18,19 @@ import java.text.DecimalFormat;
 
 import static java.lang.StrictMath.pow;
 
+
+
+
 public class MainActivity extends Activity {
+
+    public boolean isMetric = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
     }
@@ -42,6 +50,8 @@ public class MainActivity extends Activity {
         TextView reactionunits = (TextView)findViewById(R.id.textViewReactionUnits);
         TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxExponent);
         TextView inertiaunits2 = (TextView)findViewById(R.id.textViewIxUnits);
+        EditText spantext = (EditText)findViewById(R.id.editTextSpan);
+
 
 
         // Is the button now checked?
@@ -52,6 +62,8 @@ public class MainActivity extends Activity {
             case R.id.radioButtonSI:
                 if (checked)
                     // deflunits.setText("METRIC"); -- test case
+
+
 
                     // set all textviews with units to be metric ones
 
@@ -65,6 +77,30 @@ public class MainActivity extends Activity {
                     inertiaunits1.setText(R.string.Ix_units1_si);
                     inertiaunits2.setText(R.string.Ix_units2_si);
 
+                    if (!isMetric) // if current state was imperial
+                    {
+                        // change EditText values to metric
+
+                        float spanimp = Float.valueOf(spantext.getText().toString());
+                        float spanmetric = spanimp * (float)0.3048;
+
+                        // format values into strings
+
+                        DecimalFormat df1 = new DecimalFormat("0.#");
+
+                        String formattedspan = df1.format(spanmetric);
+
+
+                        // put formatted values into appropriate edittext widgets
+
+                        EditText spanField = (EditText)findViewById(R.id.editTextSpan);
+                        String spanString = formattedspan;
+
+                        spanField.setText(spanString);
+
+                        isMetric = true;
+
+                    }
 
 
 
@@ -88,6 +124,34 @@ public class MainActivity extends Activity {
                     reactionunits.setText(R.string.Rf_units_imp);
                     inertiaunits1.setText(R.string.Ix_units1_imp);
                     inertiaunits2.setText(R.string.Ix_units2_imp);
+
+
+                if (isMetric) // if current state was metric
+                {
+                    // change EditText values to imperial
+
+                    float spanmetric = Float.valueOf(spantext.getText().toString());
+                    float spanimp = spanmetric / (float)0.3048;
+
+                    // format values into strings
+
+                    DecimalFormat df1 = new DecimalFormat("0.#");
+
+                    String formattedspan = df1.format(spanimp);
+
+
+                    // put formatted values into appropriate edittext widgets
+
+                    EditText spanField = (EditText)findViewById(R.id.editTextSpan);
+                    String spanString = formattedspan;
+
+                    spanField.setText(spanString);
+
+                    isMetric = false;
+
+
+                }
+
 
 
                 break;

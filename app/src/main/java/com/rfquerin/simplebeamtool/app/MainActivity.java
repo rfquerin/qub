@@ -50,12 +50,19 @@ public class MainActivity extends Activity {
         TextView reactionunits = (TextView)findViewById(R.id.textViewReactionUnits);
         TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxExponent);
         TextView inertiaunits2 = (TextView)findViewById(R.id.textViewIxUnits);
+
         EditText spantext = (EditText)findViewById(R.id.editTextSpan);
+
+        EditText tribtext = (EditText)findViewById(R.id.editTextTrib);
 
 
 
         // Is the button now checked?
         boolean checked = ((RadioButton) v).isChecked();
+
+        // set formatting for values
+
+        DecimalFormat df1 = new DecimalFormat("0.###");
 
         // Check which radio button was clicked
         switch(v.getId()) {
@@ -84,19 +91,24 @@ public class MainActivity extends Activity {
                         float spanimp = Float.valueOf(spantext.getText().toString());
                         float spanmetric = spanimp * (float)0.3048;
 
+                        float tribimp = Float.valueOf(tribtext.getText().toString());
+                        float tribmetric = tribimp * (float)0.3048;
+
                         // format values into strings
 
-                        DecimalFormat df1 = new DecimalFormat("0.#");
+
 
                         String formattedspan = df1.format(spanmetric);
+                        String formattedtrib = df1.format(tribmetric);
+
+
 
 
                         // put formatted values into appropriate edittext widgets
 
-                        EditText spanField = (EditText)findViewById(R.id.editTextSpan);
-                        String spanString = formattedspan;
 
-                        spanField.setText(spanString);
+                        spantext.setText(formattedspan);
+                        tribtext.setText(formattedtrib);
 
                         isMetric = true;
 
@@ -133,19 +145,24 @@ public class MainActivity extends Activity {
                     float spanmetric = Float.valueOf(spantext.getText().toString());
                     float spanimp = spanmetric / (float)0.3048;
 
+                    float tribmetric = Float.valueOf(tribtext.getText().toString());
+                    float tribimp = tribmetric / (float)0.3048;
+
+
                     // format values into strings
 
-                    DecimalFormat df1 = new DecimalFormat("0.#");
+
 
                     String formattedspan = df1.format(spanimp);
+                    String formattedtrib = df1.format(tribimp);
+
 
 
                     // put formatted values into appropriate edittext widgets
 
-                    EditText spanField = (EditText)findViewById(R.id.editTextSpan);
-                    String spanString = formattedspan;
 
-                    spanField.setText(spanString);
+                    spantext.setText(formattedspan);
+                    tribtext.setText(formattedtrib);
 
                     isMetric = false;
 

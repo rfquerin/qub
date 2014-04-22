@@ -72,7 +72,8 @@
         android:gravity="right"
         android:layout_toRightOf="@+id/textViewSpanLabel"
         android:editable="true"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:selectAllOnFocus="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,7 +113,8 @@
         android:text="2.0"
         android:paddingBottom="2dp"
         android:layout_alignParentStart="false"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:selectAllOnFocus="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -153,7 +155,8 @@
         android:gravity="right"
         android:layout_alignBaseline="@+id/textViewDeadLabel"
         android:layout_toRightOf="@+id/textViewDeadLabel"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:selectAllOnFocus="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -196,7 +199,8 @@
         android:text="4.8"
         android:textSize="24dp"
         android:paddingBottom="2dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:selectAllOnFocus="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -240,7 +244,8 @@
         android:layout_toRightOf="@+id/textViewDeflnLabel"
         android:layout_alignParentEnd="false"
         android:gravity="right"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:selectAllOnFocus="true" />
 
     <TextView
         android:layout_width="wrap_content"

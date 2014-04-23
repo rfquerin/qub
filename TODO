@@ -4,6 +4,7 @@
 - format DL and LL to be 1 decimal place for metric and zero decimal places for imperial
 - format deflection ratio to be integer or float with zero decimal places
 - look at text fade in/out animations and how to incorporate them.
+- *** fix bug when refreshing values in imperial mode - calculation error!
 
 
 

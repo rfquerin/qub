@@ -52,8 +52,18 @@ public class MainActivity extends Activity {
         TextView inertiaunits2 = (TextView)findViewById(R.id.textViewIxUnits);
 
         EditText spantext = (EditText)findViewById(R.id.editTextSpan);
-
         EditText tribtext = (EditText)findViewById(R.id.editTextTrib);
+        EditText deadtext = (EditText)findViewById(R.id.editTextDead);
+        EditText livetext = (EditText)findViewById(R.id.editTextLive);
+        TextView deflntext = (TextView)findViewById(R.id.textViewDefln);
+
+        TextView momenttext = (TextView)findViewById(R.id.textViewMoment);
+        TextView reactiontext = (TextView)findViewById(R.id.textViewReaction);
+
+
+
+
+
 
 
 
@@ -62,16 +72,15 @@ public class MainActivity extends Activity {
 
         // set formatting for values
 
-        DecimalFormat df1 = new DecimalFormat("0.###");
+        DecimalFormat df3 = new DecimalFormat("0.000");
+        DecimalFormat df2 = new DecimalFormat("0.00");
+        DecimalFormat df1 = new DecimalFormat("0.0");
 
         // Check which radio button was clicked
         switch(v.getId()) {
             case R.id.radioButtonSI:
                 if (checked)
                     // deflunits.setText("METRIC"); -- test case
-
-
-
                     // set all textviews with units to be metric ones
 
                     spanunits.setText(R.string.span_units_si);
@@ -94,12 +103,38 @@ public class MainActivity extends Activity {
                         float tribimp = Float.valueOf(tribtext.getText().toString());
                         float tribmetric = tribimp * (float)0.3048;
 
+                        float deadimp = Float.valueOf(deadtext.getText().toString());
+                        float deadmetric = deadimp / (float)20.88;
+
+                        float liveimp = Float.valueOf(livetext.getText().toString());
+                        float livemetric = liveimp / (float)20.88;
+
+                        float deflnimp = Float.valueOf(deflntext.getText().toString());
+                        float deflnmetric = deflnimp * (float)25.4;
+
+                        float momentimp = Float.valueOf(momenttext.getText().toString());
+                        float momentmetric = momentimp * (float)1.355818;
+
+                        float reactionimp = Float.valueOf(reactiontext.getText().toString());
+                        float reactionmetric = reactionimp * (float)1000 / (float)225;
+
+
+
+
                         // format values into strings
 
 
 
-                        String formattedspan = df1.format(spanmetric);
-                        String formattedtrib = df1.format(tribmetric);
+                        String formattedspan = df3.format(spanmetric);
+                        String formattedtrib = df3.format(tribmetric);
+                        String formatteddead = df2.format(deadmetric);
+                        String formattedlive = df2.format(livemetric);
+                        String formatteddefln = df1.format(deflnmetric);
+                        String formattedmoment = df1.format(momentmetric);
+                        String formattedreaction = df1.format(reactionmetric);
+
+
+
 
 
 
@@ -109,6 +144,13 @@ public class MainActivity extends Activity {
 
                         spantext.setText(formattedspan);
                         tribtext.setText(formattedtrib);
+                        deadtext.setText(formatteddead);
+                        livetext.setText(formattedlive);
+                        deflntext.setText(formatteddefln);
+                        momenttext.setText(formattedmoment);
+                        reactiontext.setText(formattedreaction);
+
+
 
                         isMetric = true;
 
@@ -148,13 +190,37 @@ public class MainActivity extends Activity {
                     float tribmetric = Float.valueOf(tribtext.getText().toString());
                     float tribimp = tribmetric / (float)0.3048;
 
+                    float deadmetric = Float.valueOf(deadtext.getText().toString());
+                    float deadimp = deadmetric * (float)20.88;
+
+                    float livemetric = Float.valueOf(livetext.getText().toString());
+                    float liveimp = livemetric * (float)20.88;
+
+                    float deflnmetric = Float.valueOf(deflntext.getText().toString());
+                    float deflnimp = deflnmetric / (float)25.4;
+
+                    float momentmetric = Float.valueOf(momenttext.getText().toString());
+                    float momentimp = momentmetric / (float)1.355818;
+
+                    float reactionmetric = Float.valueOf(reactiontext.getText().toString());
+                    float reactionimp = reactionmetric * (float)0.225;
+
+
+
 
                     // format values into strings
 
 
 
-                    String formattedspan = df1.format(spanimp);
-                    String formattedtrib = df1.format(tribimp);
+                    String formattedspan = df3.format(spanimp);
+                    String formattedtrib = df3.format(tribimp);
+                    String formatteddead = df1.format(deadimp);
+                    String formattedlive = df1.format(liveimp);
+                    String formatteddefln = df1.format(deflnimp);
+                    String formattedmoment = df1.format(momentimp);
+                    String formattedreaction = df1.format(reactionimp);
+
+
 
 
 
@@ -163,6 +229,12 @@ public class MainActivity extends Activity {
 
                     spantext.setText(formattedspan);
                     tribtext.setText(formattedtrib);
+                    deadtext.setText(formatteddead);
+                    livetext.setText(formattedlive);
+                    deflntext.setText(formatteddefln);
+
+                    momenttext.setText(formattedmoment);
+                    reactiontext.setText(formattedreaction);
 
                     isMetric = false;
 
@@ -230,7 +302,7 @@ public class MainActivity extends Activity {
 
         // format moment and reaction values into strings with only 1 decimal place
 
-        DecimalFormat df = new DecimalFormat("0.#");
+        DecimalFormat df = new DecimalFormat("0.0");
 
         String formattedmoment = df.format(moment);
         String formattedreaction = df.format(reaction);

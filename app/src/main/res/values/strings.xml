@@ -19,8 +19,8 @@
     <string name="defln_units_si">mm</string>
     <string name="Mf_units_si">kNm</string>
     <string name="Rf_units_si">kN</string>
-    <string name="Ix_units1_si">x10^6</string>
-    <string name="Ix_units2_si">mm4</string>
+    <string name="Ix_units1_si">mm4</string>
+
 
 
     <string name="span_units_imp">ft</string>
@@ -31,6 +31,6 @@
     <string name="Mf_units_imp">ft-k</string>
     <string name="Rf_units_imp">k</string>
     <string name="Ix_units1_imp">in4</string>
-    <string name="Ix_units2_imp"> </string>
+
 
 </resources>

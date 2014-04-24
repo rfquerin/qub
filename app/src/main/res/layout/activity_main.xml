@@ -408,22 +408,11 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Ix_units1_si"
-        android:id="@+id/textViewIxExponent"
-        android:layout_toRightOf="@+id/textViewIx"
-        android:layout_alignBaseline="@+id/textViewIx"
-        android:textColor="#c9c9c9"
-        android:textSize="20sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/Ix_units2_si"
         android:id="@+id/textViewIxUnits"
-        android:layout_toRightOf="@+id/textViewIxExponent"
         android:layout_alignBaseline="@+id/textViewIx"
         android:textColor="#c9c9c9"
-        android:textSize="15sp"/>
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/textViewIx" />
 
 
 

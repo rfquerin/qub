@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -48,8 +49,7 @@ public class MainActivity extends Activity {
         TextView deflunits = (TextView)findViewById(R.id.textViewDeflnUnits);
         TextView momentunits = (TextView)findViewById(R.id.textViewMomentUnits);
         TextView reactionunits = (TextView)findViewById(R.id.textViewReactionUnits);
-        TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxExponent);
-        TextView inertiaunits2 = (TextView)findViewById(R.id.textViewIxUnits);
+        TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxUnits);
 
         EditText spantext = (EditText)findViewById(R.id.editTextSpan);
         EditText tribtext = (EditText)findViewById(R.id.editTextTrib);
@@ -59,6 +59,7 @@ public class MainActivity extends Activity {
 
         TextView momenttext = (TextView)findViewById(R.id.textViewMoment);
         TextView reactiontext = (TextView)findViewById(R.id.textViewReaction);
+        TextView inertiatext = (TextView)findViewById(R.id.textViewIx);
 
 
 
@@ -75,6 +76,7 @@ public class MainActivity extends Activity {
         DecimalFormat df3 = new DecimalFormat("0.000");
         DecimalFormat df2 = new DecimalFormat("0.00");
         DecimalFormat df1 = new DecimalFormat("0.0");
+        DecimalFormat df_IxSI = new DecimalFormat("##0.###E0");
 
         // Check which radio button was clicked
         switch(v.getId()) {
@@ -91,7 +93,7 @@ public class MainActivity extends Activity {
                     momentunits.setText(R.string.Mf_units_si);
                     reactionunits.setText(R.string.Rf_units_si);
                     inertiaunits1.setText(R.string.Ix_units1_si);
-                    inertiaunits2.setText(R.string.Ix_units2_si);
+
 
                     if (!isMetric) // if current state was imperial
                     {
@@ -118,6 +120,10 @@ public class MainActivity extends Activity {
                         float reactionimp = Float.valueOf(reactiontext.getText().toString());
                         float reactionmetric = reactionimp * (float)1000 / (float)225;
 
+                        float inertiaimp = Float.valueOf(inertiatext.getText().toString());
+                        float inertiametric = inertiaimp * (float)25.4 * (float)25.4 * (float)25.4 * (float)25.4;
+
+
 
 
 
@@ -132,6 +138,7 @@ public class MainActivity extends Activity {
                         String formatteddefln = df1.format(deflnmetric);
                         String formattedmoment = df1.format(momentmetric);
                         String formattedreaction = df1.format(reactionmetric);
+                        String formattedinertia = df_IxSI.format(inertiametric);
 
 
 
@@ -149,6 +156,7 @@ public class MainActivity extends Activity {
                         deflntext.setText(formatteddefln);
                         momenttext.setText(formattedmoment);
                         reactiontext.setText(formattedreaction);
+                        inertiatext.setText(formattedinertia);
 
 
 
@@ -177,7 +185,7 @@ public class MainActivity extends Activity {
                     momentunits.setText(R.string.Mf_units_imp);
                     reactionunits.setText(R.string.Rf_units_imp);
                     inertiaunits1.setText(R.string.Ix_units1_imp);
-                    inertiaunits2.setText(R.string.Ix_units2_imp);
+
 
 
                 if (isMetric) // if current state was metric
@@ -205,6 +213,8 @@ public class MainActivity extends Activity {
                     float reactionmetric = Float.valueOf(reactiontext.getText().toString());
                     float reactionimp = reactionmetric * (float)0.225;
 
+                    float inertiametric = Float.valueOf(inertiatext.getText().toString());
+                    float inertiaimp = inertiametric / ((float)25.4 * (float)25.4 * (float)25.4 * (float)25.4);
 
 
 
@@ -219,6 +229,8 @@ public class MainActivity extends Activity {
                     String formatteddefln = df1.format(deflnimp);
                     String formattedmoment = df1.format(momentimp);
                     String formattedreaction = df1.format(reactionimp);
+                    String formattedinertia = df1.format(inertiaimp);
+
 
 
 
@@ -235,6 +247,7 @@ public class MainActivity extends Activity {
 
                     momenttext.setText(formattedmoment);
                     reactiontext.setText(formattedreaction);
+                    inertiatext.setText(formattedinertia);
 
                     isMetric = false;
 
@@ -272,62 +285,137 @@ public class MainActivity extends Activity {
         float deflnRatio = Float.valueOf(deflnInput.getText().toString());
 
 
+        // handle moment, reaction and inertia calculations
 
-        // compute bending moment
+        // determine whether metric or imperial
 
-        float load = (((float)1.25*deadload)+((float)1.5*liveload))*tribwidth;
+        RadioButton unitsSI = (RadioButton)findViewById(R.id.radioButtonSI);
 
-        float moment = (load * span * span) * (float) 0.125;
-
-        float liveload_linear = liveload * tribwidth;
-
-        // compute end reaction
-
-        float reaction = (load * span)*(float)0.50;
+        if (unitsSI.isChecked()) {
 
 
-        // compute required moment of inertia
+            // compute bending moment
 
-        float span_mm = (float)1000.0 * span;
+            float load = (((float) 1.25 * deadload) + ((float) 1.5 * liveload)) * tribwidth;
 
-        float defln_measurement = span_mm / deflnRatio;
+            float moment = (load * span * span) * (float) 0.125;
 
-        float numerator = (float)5.0 * liveload_linear*span_mm*span_mm*span_mm*span_mm;
+            float liveload_linear = liveload * tribwidth;
 
-        float denominator = (float)384 * (float)200000 * defln_measurement;
+            // compute end reaction
 
-        float inertia = numerator/(denominator*(float)1e6);
+            float reaction = (load * span) * (float) 0.50;
+
+
+            // compute required moment of inertia
+
+            float span_mm = (float) 1000.0 * span;
+
+            float defln_measurement = span_mm / deflnRatio;
+
+            float numerator = (float) 5.0 * liveload_linear * span_mm * span_mm * span_mm * span_mm;
+
+            float denominator = (float) 384 * (float) 200000 * defln_measurement;
+
+            float inertia = numerator / denominator;
+
+
+            // format moment and reaction values into strings with only 1 decimal place
+
+            DecimalFormat df = new DecimalFormat("0.0");
+            DecimalFormat df_Ix = new DecimalFormat("##0.###E0");
+
+            String formattedmoment = df.format(moment);
+            String formattedreaction = df.format(reaction);
+            String formattedinertia = df_Ix.format(inertia);
+            String formatteddeflection = df.format(defln_measurement);
+
+            // put moment, reaction, and inertia values into appropriate textview widgets
+
+            TextView momentField = (TextView) findViewById(R.id.textViewMoment);
+            String momentString = formattedmoment;
+
+            TextView reactionField = (TextView) findViewById(R.id.textViewReaction);
+            String reactionString = formattedreaction;
+
+            TextView inertiaField = (TextView) findViewById(R.id.textViewIx);
+            String inertiaString = formattedinertia;
+
+            TextView deflectionField = (TextView) findViewById(R.id.textViewDefln);
+            String deflectionString = formatteddeflection;
+
+            momentField.setText(momentString);
+            reactionField.setText(reactionString);
+            inertiaField.setText(inertiaString);
+            deflectionField.setText(deflectionString);
+        }
+        else
+        {
+
+            // carry out calculations for imperial
+
+            // compute bending moment
+
+            float load = (((float) 1.25 * deadload / (float)1000) + ((float) 1.5 * liveload / (float)1000)) * tribwidth;
+
+            float moment = (load * span * span) * (float) 0.125;
 
 
 
-        // format moment and reaction values into strings with only 1 decimal place
+            // compute end reaction
 
-        DecimalFormat df = new DecimalFormat("0.0");
+            float reaction = (load * span) * (float) 0.50;
 
-        String formattedmoment = df.format(moment);
-        String formattedreaction = df.format(reaction);
-        String formattedinertia = df.format(inertia);
-        String formatteddeflection = df.format(defln_measurement);
 
-        // put moment, reaction, and inertia values into appropriate textview widgets
+            // compute required moment of inertia
 
-        TextView momentField = (TextView)findViewById(R.id.textViewMoment);
-        String momentString = formattedmoment;
+            float liveload_linear = (float)0.001 * liveload * tribwidth / (float)12;
 
-        TextView reactionField = (TextView)findViewById(R.id.textViewReaction);
-        String reactionString = formattedreaction;
+            float span_in = (float) 12 * span;
 
-        TextView inertiaField = (TextView)findViewById(R.id.textViewIx);
-        String inertiaString = formattedinertia;
+            float defln_measurement = span_in / deflnRatio;
 
-        TextView deflectionField = (TextView)findViewById(R.id.textViewDefln);
-        String deflectionString = formatteddeflection;
+            float numerator = (float) 5.0 * liveload_linear * span_in * span_in * span_in * span_in;
 
-        momentField.setText(momentString);
-        reactionField.setText(reactionString);
-        inertiaField.setText(inertiaString);
-        deflectionField.setText(deflectionString);
+            float denominator = (float) 384 * (float) 29000 * defln_measurement;
 
+            float inertia = numerator / denominator;
+
+
+            // format moment and reaction values into strings with only 1 decimal place
+
+            DecimalFormat df = new DecimalFormat("0.0");
+
+            String formattedmoment = df.format(moment);
+            String formattedreaction = df.format(reaction);
+            String formattedinertia = df.format(inertia);
+            String formatteddeflection = df.format(defln_measurement);
+
+            // put moment, reaction, and inertia values into appropriate textview widgets
+
+            TextView momentField = (TextView) findViewById(R.id.textViewMoment);
+            String momentString = formattedmoment;
+
+            TextView reactionField = (TextView) findViewById(R.id.textViewReaction);
+            String reactionString = formattedreaction;
+
+            TextView inertiaField = (TextView) findViewById(R.id.textViewIx);
+            String inertiaString = formattedinertia;
+
+            TextView deflectionField = (TextView) findViewById(R.id.textViewDefln);
+            String deflectionString = formatteddeflection;
+
+            momentField.setText(momentString);
+            reactionField.setText(reactionString);
+            inertiaField.setText(inertiaString);
+            deflectionField.setText(deflectionString);
+
+
+
+
+
+
+        }
 
 
 

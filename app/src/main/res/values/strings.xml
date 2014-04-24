@@ -32,5 +32,6 @@
     <string name="Rf_units_imp">k</string>
     <string name="Ix_units1_imp">in<sup><small>4</small></sup></string>
 
+    <string name="menuitem_loadfactors">Set Load Factors</string>
 
 </resources>

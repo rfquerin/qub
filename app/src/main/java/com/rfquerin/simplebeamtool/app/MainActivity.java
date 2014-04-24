@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ import static java.lang.StrictMath.pow;
 public class MainActivity extends Activity {
 
     public boolean isMetric = true;
+    public float deadfactor = (float)1.25;
+    public float livefactor = (float)1.50;
 
 
     @Override
@@ -39,9 +42,27 @@ public class MainActivity extends Activity {
 
         refreshbutton.performClick();
 
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_setfactors:
+                // do the settings dialog box thang.
 
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -304,7 +325,7 @@ public class MainActivity extends Activity {
 
             // compute bending moment
 
-            float load = (((float) 1.25 * deadload) + ((float) 1.5 * liveload)) * tribwidth;
+            float load = ((deadfactor * deadload) + (livefactor * liveload)) * tribwidth;
 
             float moment = (load * span * span) * (float) 0.125;
 
@@ -364,7 +385,7 @@ public class MainActivity extends Activity {
 
             // compute bending moment
 
-            float load = (((float) 1.25 * deadload / (float)1000) + ((float) 1.5 * liveload / (float)1000)) * tribwidth;
+            float load = ((deadfactor * deadload / (float)1000) + (livefactor * liveload / (float)1000)) * tribwidth;
 
             float moment = (load * span * span) * (float) 0.125;
 
@@ -420,13 +441,6 @@ public class MainActivity extends Activity {
 
 
 
-
-
-
         }
-
-
-
-
     }
 }

@@ -15,10 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textViewMoment"
         android:id="@+id/radioGroup"
-        android:paddingBottom="5dp"
-        android:layout_alignParentLeft="false">
+        android:paddingBottom="10dp">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -47,15 +45,15 @@
         android:text="@string/span_label"
         android:id="@+id/textViewSpanLabel"
         android:gravity="right"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:ems="5"
         android:enabled="true"
         android:fadeScrollbars="true"
         android:editable="true"
         android:textColor="#c9c9c9"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -282,13 +280,13 @@
         android:text="@string/Mf_label"
         android:id="@+id/textViewMomentLabel"
         android:gravity="right"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/textViewDeflnLabel"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="50dp"
-        android:textIsSelectable="false" />
+        android:textSize="20sp"
+        android:paddingLeft="95dp"
+        android:textIsSelectable="false"
+        android:layout_toRightOf="@+id/editTextDeflnRatio"
+        android:paddingTop="18dp"
+        android:layout_above="@+id/textViewRxnLabel" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -303,7 +301,7 @@
         android:gravity="right"
         android:enabled="true"
         android:layout_alignBaseline="@+id/textViewMomentLabel"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:fadeScrollbars="true"
         android:paddingRight="8dp"
@@ -320,8 +318,9 @@
         android:id="@+id/textViewMomentUnits"
         android:layout_alignBaseline="@+id/textViewMoment"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:layout_alignLeft="@+id/textViewLiveUnits" />
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
 
 
 
@@ -334,13 +333,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Rf_label"
         android:id="@+id/textViewRxnLabel"
-        android:layout_below="@+id/textViewMomentLabel"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_alignParentLeft="false"
         android:layout_alignRight="@+id/textViewMomentLabel"
-        android:textIsSelectable="true" />
+        android:textIsSelectable="true"
+        android:layout_above="@+id/textViewIxLabel" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -355,7 +354,7 @@
         android:gravity="right"
         android:enabled="true"
         android:layout_alignBaseline="@+id/textViewRxnLabel"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:fadeScrollbars="true"
         android:paddingRight="8dp"
@@ -371,7 +370,7 @@
         android:layout_alignBaseline="@+id/textViewReaction"
         android:textColor="@android:color/white"
         android:layout_alignLeft="@+id/textViewMomentUnits"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
 
     <TextView
@@ -380,12 +379,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Ix_label"
         android:id="@+id/textViewIxLabel"
-        android:layout_below="@+id/textViewRxnLabel"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_alignRight="@+id/textViewRxnLabel"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:layout_alignBottom="@+id/buttonRefresh" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -400,7 +399,7 @@
         android:gravity="right"
         android:enabled="true"
         android:layout_alignBaseline="@+id/textViewIxLabel"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:fadeScrollbars="true"
         android:paddingRight="8dp"
@@ -415,7 +414,7 @@
         android:id="@+id/textViewIxUnits"
         android:layout_alignBaseline="@+id/textViewIx"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_alignLeft="@+id/textViewReactionUnits" />
 
 
@@ -429,15 +428,14 @@
         android:text="Refresh"
         android:id="@+id/buttonRefresh"
         android:onClick="refreshbuttonOnClick"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:paddingLeft="60dp"
         android:textColor="@android:color/white"
         android:paddingRight="60dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginBottom="8dp"
-        style="@android:style/Theme.Light" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="false" />
 
 </RelativeLayout>
 

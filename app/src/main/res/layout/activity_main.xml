@@ -17,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textViewMoment"
         android:id="@+id/radioGroup"
-        android:paddingBottom="20dp"
+        android:paddingBottom="5dp"
         android:layout_alignParentLeft="false">
 
         <RadioButton
@@ -283,11 +283,12 @@
         android:id="@+id/textViewMomentLabel"
         android:gravity="right"
         android:layout_marginTop="55dp"
-        android:layout_toLeftOf="@+id/buttonRefresh"
         android:layout_below="@+id/textViewDeflnLabel"
-        android:textColor="#c9c9c9"
-        android:layout_alignRight="@+id/textViewDeflnLabel"
-        android:textSize="20sp"/>
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="50dp"
+        android:textIsSelectable="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -295,19 +296,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="10"
         android:id="@+id/textViewMoment"
-        android:ems="4"
+        android:ems="5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="53dp"
         android:gravity="right"
-        android:layout_toRightOf="@+id/textViewMomentLabel"
         android:enabled="true"
         android:layout_alignBaseline="@+id/textViewMomentLabel"
-        android:textSize="24dp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:fadeScrollbars="true"
         android:paddingRight="8dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_toLeftOf="@+id/textViewMomentUnits" />
 
 
 
@@ -317,10 +318,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Mf_units_si"
         android:id="@+id/textViewMomentUnits"
-        android:layout_toRightOf="@+id/textViewMoment"
         android:layout_alignBaseline="@+id/textViewMoment"
-        android:textColor="#c9c9c9"
-        android:textSize="20sp"/>
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_alignLeft="@+id/textViewLiveUnits" />
 
 
 
@@ -334,10 +335,12 @@
         android:text="@string/Rf_label"
         android:id="@+id/textViewRxnLabel"
         android:layout_below="@+id/textViewMomentLabel"
-        android:layout_toLeftOf="@+id/textViewMoment"
         android:layout_marginTop="12dp"
-        android:textColor="#c9c9c9"
-        android:textSize="20sp"/>
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignRight="@+id/textViewMomentLabel"
+        android:textIsSelectable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -345,19 +348,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="10"
         android:id="@+id/textViewReaction"
-        android:ems="4"
+        android:ems="5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="53dp"
         android:gravity="right"
-        android:layout_toRightOf="@+id/textViewRxnLabel"
         android:enabled="true"
         android:layout_alignBaseline="@+id/textViewRxnLabel"
-        android:textSize="24dp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:fadeScrollbars="true"
         android:paddingRight="8dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_toLeftOf="@+id/textViewReactionUnits" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -365,10 +368,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Rf_units_si"
         android:id="@+id/textViewReactionUnits"
-        android:layout_toRightOf="@+id/textViewReaction"
         android:layout_alignBaseline="@+id/textViewReaction"
-        android:textColor="#c9c9c9"
-        android:textSize="20sp"/>
+        android:textColor="@android:color/white"
+        android:layout_alignLeft="@+id/textViewMomentUnits"
+        android:textSize="24sp" />
 
 
     <TextView
@@ -378,10 +381,11 @@
         android:text="@string/Ix_label"
         android:id="@+id/textViewIxLabel"
         android:layout_below="@+id/textViewRxnLabel"
-        android:layout_toLeftOf="@+id/textViewReaction"
         android:layout_marginTop="12dp"
-        android:textColor="#c9c9c9"
-        android:textSize="20sp"/>
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_alignRight="@+id/textViewRxnLabel"
+        android:textIsSelectable="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -389,19 +393,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="10"
         android:id="@+id/textViewIx"
-        android:ems="4"
+        android:ems="5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="53dp"
         android:gravity="right"
-        android:layout_toRightOf="@+id/textViewIxLabel"
         android:enabled="true"
         android:layout_alignBaseline="@+id/textViewIxLabel"
-        android:textSize="24dp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:fadeScrollbars="true"
         android:paddingRight="8dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_toLeftOf="@+id/textViewIxUnits" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -410,9 +414,9 @@
         android:text="@string/Ix_units1_si"
         android:id="@+id/textViewIxUnits"
         android:layout_alignBaseline="@+id/textViewIx"
-        android:textColor="#c9c9c9"
-        android:textSize="20sp"
-        android:layout_toRightOf="@+id/textViewIx" />
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_alignLeft="@+id/textViewReactionUnits" />
 
 
 
@@ -426,7 +430,13 @@
         android:id="@+id/buttonRefresh"
         android:onClick="refreshbuttonOnClick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="60dp"
+        android:textColor="@android:color/white"
+        android:paddingRight="60dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="8dp" />
 
 </RelativeLayout>
 

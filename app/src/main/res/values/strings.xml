@@ -10,7 +10,13 @@
     <string name="deflnRatio_label">LL Defln L/</string>
     <string name="Mf_label">Mf =</string>
     <string name="Rf_label">Rf =</string>
-    <string name="Ix_label">Ix \u2264</string>
+    <string name="Ix_label">Ix \u2265</string>
+
+    <string name="initialSpan">5.000</string>
+    <string name="initialTrib">2.000</string>
+    <string name="initialDead">2.50</string>
+    <string name="initialLive">4.80</string>
+    <string name="initialDeflnRatio">300</string>
 
     <string name="span_units_si">m</string>
     <string name="tribwidth_units_si">m</string>

@@ -1,6 +1,7 @@
 package com.rfquerin.simplebeamtool.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,6 +45,7 @@ public class MainActivity extends Activity {
 
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -55,9 +57,9 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.menu_setfactors:
-                // do the settings dialog box thang.
-
+            case R.id.settings:
+                //call settings menu up;
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
 
             default:

@@ -22,6 +22,15 @@ import android.support.v4.app.NavUtils;
 
 import java.util.List;
 
+/* *
+  * This whole file is just a sample placeholder. It will need to be vastly slimmed
+  * down to show only the settings I need (Dead Load Factor, Live Load Factor and 
+  * Young's Modulus value.
+*/
+  
+
+
+
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
  * handset devices, settings are presented as a single list. On tablets,

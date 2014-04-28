@@ -40,9 +40,15 @@ public class MainActivity extends Activity {
         // arbitrarily hit refresh to update values on creation
 
         Button refreshbutton = (Button)findViewById(R.id.buttonRefresh);
-
         refreshbutton.performClick();
 
+		// force radiobutton onClick method to execute mostly to handle device 
+		// orientation change
+		
+		// put  some code here to do it
+		
+		
+		
     }
 
 

@@ -1,10 +1,6 @@
-- make switching between imperial and metric work
-- find out how to do proper superscripts on strings in textViews
-- organize decimal formats during conversion to keep 3 decimal places max for span and trib width in metric and in imperial
-- format DL and LL to be 1 decimal place for metric and zero decimal places for imperial
-- format deflection ratio to be integer or float with zero decimal places
 - look at text fade in/out animations and how to incorporate them.
-- *** fix bug when refreshing values in imperial mode - calculation error!
+- make sure units are checked and matched to currently selected checkbox for switch to landscape
+
 
 
 

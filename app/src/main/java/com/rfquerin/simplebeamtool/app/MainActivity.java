@@ -46,6 +46,7 @@ public class MainActivity extends Activity {
 		// orientation change
 		
 		// put  some code here to do it
+
 		
 		
 		

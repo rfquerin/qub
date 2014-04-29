@@ -38,6 +38,12 @@
     <string name="Rf_units_imp">k</string>
     <string name="Ix_units1_imp">in<sup><small>4</small></sup></string>
 
-    <string name="menuitem_loadfactors">Set Load Factors</string>
+    <string name="pref_dead_load_factor">Dead Load Factor</string>
+    <string name="pref_live_load_factor">Live Load Factor</string>
+    <string name="pref_youngs_modulus">Youngs Modulus E (MPa)</string>
+
+    <string name="pref_default_dead_load_factor">1.25</string>
+    <string name="pref_default_live_load_factor">1.50</string>
+    <string name="pref_default_youngs_modulus">200000</string>
 
 </resources>

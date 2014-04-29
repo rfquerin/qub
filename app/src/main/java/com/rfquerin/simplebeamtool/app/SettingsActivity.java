@@ -22,14 +22,6 @@ import android.support.v4.app.NavUtils;
 
 import java.util.List;
 
-/* *
-  * This whole file is just a sample placeholder. It will need to be vastly slimmed
-  * down to show only the settings I need (Dead Load Factor, Live Load Factor and 
-  * Young's Modulus value.
-*/
-  
-
-
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -110,6 +102,7 @@ public class SettingsActivity extends PreferenceActivity {
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
 
+        /*
         // Add 'notifications' preferences, and a corresponding header.
         PreferenceCategory fakeHeader = new PreferenceCategory(this);
         fakeHeader.setTitle(R.string.pref_header_notifications);
@@ -121,14 +114,16 @@ public class SettingsActivity extends PreferenceActivity {
         fakeHeader.setTitle(R.string.pref_header_data_sync);
         getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_data_sync);
+        */
 
         // Bind the summaries of EditText/List/Dialog/Ringtone preferences to
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
-        bindPreferenceSummaryToValue(findPreference("example_text"));
-        bindPreferenceSummaryToValue(findPreference("example_list"));
-        bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));
-        bindPreferenceSummaryToValue(findPreference("sync_frequency"));
+        bindPreferenceSummaryToValue(findPreference("dead_factor"));
+        bindPreferenceSummaryToValue(findPreference("live_factor"));
+        bindPreferenceSummaryToValue(findPreference("youngs_modulus"));
+
+
     }
 
     /** {@inheritDoc} */

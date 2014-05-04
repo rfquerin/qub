@@ -25,6 +25,7 @@ import static java.lang.StrictMath.pow;
 
 
 
+
 public class MainActivity extends Activity {
 
     public boolean isMetric = true;
@@ -42,10 +43,25 @@ public class MainActivity extends Activity {
         Button refreshbutton = (Button)findViewById(R.id.buttonRefresh);
         refreshbutton.performClick();
 
-		// force radiobutton onClick method to execute mostly to handle device 
+		// refresh units to handle device
 		// orientation change
 		
 		// put  some code here to do it
+
+        // determine whether metric or imperial
+
+        RadioButton unitsSI = (RadioButton)findViewById(R.id.radioButtonSI);
+
+        if (unitsSI.isChecked()) {
+
+            setUnitsMetric();
+
+        }
+        else
+        {
+
+            setUnitsImperial();
+        }
 
 		
 		
@@ -451,5 +467,60 @@ public class MainActivity extends Activity {
 
 
         }
+    }
+
+
+
+    public void setUnitsMetric(){
+        // set all units to metric
+
+        TextView spanunits = (TextView)findViewById(R.id.textViewSpanUnits);
+        TextView tribunits = (TextView)findViewById(R.id.textViewTribUnits);
+        TextView deadunits = (TextView)findViewById(R.id.textViewDeadUnits);
+        TextView liveunits = (TextView)findViewById(R.id.textViewLiveUnits);
+        TextView deflunits = (TextView)findViewById(R.id.textViewDeflnUnits);
+        TextView momentunits = (TextView)findViewById(R.id.textViewMomentUnits);
+        TextView reactionunits = (TextView)findViewById(R.id.textViewReactionUnits);
+        TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxUnits);
+
+
+
+        spanunits.setText(R.string.span_units_si);
+        tribunits.setText(R.string.tribwidth_units_si);
+        deadunits.setText(R.string.deadUDL_units_si);
+        liveunits.setText(R.string.liveUDL_units_si);
+        deflunits.setText(R.string.defln_units_si);
+        momentunits.setText(R.string.Mf_units_si);
+        reactionunits.setText(R.string.Rf_units_si);
+        inertiaunits1.setText(R.string.Ix_units1_si);
+
+
+
+    }
+
+
+    public void setUnitsImperial(){
+        // set all units to imperial
+
+
+        TextView spanunits = (TextView)findViewById(R.id.textViewSpanUnits);
+        TextView tribunits = (TextView)findViewById(R.id.textViewTribUnits);
+        TextView deadunits = (TextView)findViewById(R.id.textViewDeadUnits);
+        TextView liveunits = (TextView)findViewById(R.id.textViewLiveUnits);
+        TextView deflunits = (TextView)findViewById(R.id.textViewDeflnUnits);
+        TextView momentunits = (TextView)findViewById(R.id.textViewMomentUnits);
+        TextView reactionunits = (TextView)findViewById(R.id.textViewReactionUnits);
+        TextView inertiaunits1 = (TextView)findViewById(R.id.textViewIxUnits);
+
+        spanunits.setText(R.string.span_units_imp);
+        tribunits.setText(R.string.tribwidth_units_imp);
+        deadunits.setText(R.string.deadUDL_units_imp);
+        liveunits.setText(R.string.liveUDL_units_imp);
+        deflunits.setText(R.string.defln_units_imp);
+        momentunits.setText(R.string.Mf_units_imp);
+        reactionunits.setText(R.string.Rf_units_imp);
+        inertiaunits1.setText(R.string.Ix_units1_imp);
+
+
     }
 }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SimpleBeamTool.iml" filepath="$PROJECT_DIR$/SimpleBeamTool.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qub.iml" filepath="$PROJECT_DIR$/qub.iml" />
     </modules>
   </component>
 </project>

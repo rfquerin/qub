@@ -3,8 +3,11 @@ package com.rfquerin.simplebeamtool.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,11 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
 
 import org.w3c.dom.Text;
 
@@ -277,6 +283,8 @@ public class MainActivity extends Activity {
 
                     // set all textviews with units to be imperial ones
 
+                   // spanunits.setText(R.string.span_units_imp);
+
                     spanunits.setText(R.string.span_units_imp);
                     tribunits.setText(R.string.tribwidth_units_imp);
                     deadunits.setText(R.string.deadUDL_units_imp);
@@ -507,7 +515,8 @@ public class MainActivity extends Activity {
 
 
 
-        spanunits.setText(R.string.span_units_si);
+//        spanunits.setText(R.string.span_units_si);
+        spanunits.setText("m");
         tribunits.setText(R.string.tribwidth_units_si);
         deadunits.setText(R.string.deadUDL_units_si);
         liveunits.setText(R.string.liveUDL_units_si);
